@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한빛출판네트워크 신간 도서 - Retro Blue</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(180deg, #001a33 0%, #003366 50%, #004080 100%);
+            min-height: 100vh;
+            font-family: 'VT323', monospace;
+            font-size: 20px;
+            color: #00ffff;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(0, 0, 0, 0.15),
+                    rgba(0, 0, 0, 0.15) 1px,
+                    transparent 1px,
+                    transparent 2px
+                );
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #0066cc, #003d7a);
+            border: 4px solid #00ffff;
+            box-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.5),
+                inset 0 0 20px rgba(0, 255, 255, 0.1);
+            margin-bottom: 40px;
+            position: relative;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), inset 0 0 20px rgba(0, 255, 255, 0.1); }
+            to { box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), inset 0 0 30px rgba(0, 255, 255, 0.2); }
+        }
+        
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 24px;
+            color: #ffffff;
+            text-shadow: 
+                2px 2px 0 #0066cc,
+                4px 4px 0 #003d7a,
+                6px 6px 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .subtitle {
+            color: #00ffff;
+            font-size: 28px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
+        
+        .book-card {
+            background: linear-gradient(135deg, #002244, #003366);
+            border: 3px solid #0099ff;
+            padding: 25px;
+            margin-bottom: 25px;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 
+                5px 5px 0 #001a33,
+                10px 10px 0 #000d1a;
+        }
+        
+        .book-card::before {
+            content: "";
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #00ffff, #0066ff, #00ffff);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .book-card:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 
+                10px 10px 0 #001a33,
+                20px 20px 0 #000d1a;
+        }
+        
+        .book-card:hover::before {
+            opacity: 1;
+            animation: borderRotate 2s linear infinite;
+        }
+        
+        @keyframes borderRotate {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+        
+        .book-number {
+            display: inline-block;
+            background: #00ffff;
+            color: #001a33;
+            padding: 5px 15px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 14px;
+            margin-bottom: 15px;
+            box-shadow: 3px 3px 0 #0066cc;
+        }
+        
+        h3 {
+            color: #ffffff;
+            font-size: 28px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 0 #0066cc;
+            letter-spacing: 1px;
+        }
+        
+        .book-info {
+            margin-top: 15px;
+        }
+        
+        .book-info p {
+            margin-bottom: 8px;
+            color: #66ccff;
+            display: flex;
+            align-items: center;
+        }
+        
+        .book-info strong {
+            color: #00ffff;
+            margin-right: 10px;
+            min-width: 80px;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+        }
+        
+        .tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #0066cc, #003d7a);
+            color: #ffffff;
+            padding: 5px 10px;
+            margin-right: 10px;
+            margin-top: 10px;
+            border: 1px solid #00ffff;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: blink 3s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .feature {
+            background: rgba(0, 102, 204, 0.2);
+            border-left: 4px solid #00ffff;
+            padding: 10px 15px;
+            margin-top: 15px;
+            font-size: 18px;
+            color: #99ddff;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 2px solid #0099ff;
+            color: #66ccff;
+            font-size: 18px;
+        }
+        
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 255, 255, 0.03) 2px,
+                    rgba(0, 255, 255, 0.03) 4px
+                );
+            animation: scanlines 8s linear infinite;
+        }
+        
+        @keyframes scanlines {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(10px); }
+        }
+        
+        .crt-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 99;
+        }
+        
+        .crt-effect::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                ellipse at center,
+                rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 0.2) 100%
+            );
+        }
+    </style>
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="crt-effect"></div>
+    
+    <div class="container">
+        <header>
+            <h1>HANBIT PUBLISHING</h1>
+            <div class="subtitle">[ 신간 도서 목록 ]</div>
+        </header>
+        
+        <main>
+            <div class="book-card">
+                <span class="book-number">BOOK #01</span>
+                <h3>피할 수 없는 듣기 싫은 말 백배 활용법</h3>
+                <div class="book-info">
+                    <p><strong>저자:</strong> 이윤경</p>
+                    <p><strong>형태:</strong> 종이책</p>
+                    <p><strong>분야:</strong> 자기계발</p>
+                </div>
+                <div class="tag">SELF-HELP</div>
+            </div>
+            
+            <div class="book-card">
+                <span class="book-number">BOOK #02</span>
+                <h3>요즘 교사를 위한 AI 디지털 수업 설계 가이드</h3>
+                <div class="book-info">
+                    <p><strong>저자:</strong> 김진관, 김상섭, 이대형, 이상선, 윤신영</p>
+                    <p><strong>형태:</strong> 종이책 (예약판매)</p>
+                    <p><strong>분야:</strong> 교육/AI</p>
+                </div>
+                <div class="feature">2022 개정 교육과정 반영, AI 활용 수업 설계</div>
+                <div class="tag">EDUCATION</div>
+                <div class="tag">AI</div>
+            </div>
+            
+            <div class="book-card">
+                <span class="book-number">BOOK #03</span>
+                <h3>회사에서 바로 통하는 실무 엑셀 파워포인트 워드 한글</h3>
+                <div class="book-info">
+                    <p><strong>저자:</strong> 전미진, 이화진, 신면철</p>
+                    <p><strong>형태:</strong> 종이책 (예약판매)</p>
+                    <p><strong>분야:</strong> 컴퓨터/오피스</p>
+                </div>
+                <div class="feature">실무 중심, MS Office & 한글 통합 학습</div>
+                <div class="tag">OFFICE</div>
+                <div class="tag">PRACTICAL</div>
+            </div>
+            
+            <div class="book-card">
+                <span class="book-number">BOOK #04</span>
+                <h3>회사에서 바로 통하는 오토캐드 AutoCAD 2026</h3>
+                <div class="book-info">
+                    <p><strong>저자:</strong> 심미현</p>
+                    <p><strong>형태:</strong> 종이책, 전자책</p>
+                    <p><strong>분야:</strong> 컴퓨터/CAD</p>
+                </div>
+                <div class="feature">AutoCAD 2026 최신 버전 대응</div>
+                <div class="tag">CAD</div>
+                <div class="tag">DESIGN</div>
+            </div>
+            
+            <div class="book-card">
+                <span class="book-number">BOOK #05</span>
+                <h3>구스마일의 월 1,000만 원 버는 유튜브 첫걸음 가이드북</h3>
+                <div class="book-info">
+                    <p><strong>저자:</strong> 구스마일(구태한)</p>
+                    <p><strong>형태:</strong> 종이책, 전자책</p>
+                    <p><strong>분야:</strong> 마케팅/유튜브</p>
+                </div>
+                <div class="feature">유튜브 수익화 실전 가이드</div>
+                <div class="tag">YOUTUBE</div>
+                <div class="tag">MARKETING</div>
+            </div>
+            
+            <div class="book-card">
+                <span class="book-number">BOOK #06</span>
+                <h3>데이터 삽질 끝에 UX가 보였다</h3>
+                <div class="book-info">
+                    <p><strong>저자:</strong> 이미진(란란)</p>
+                    <p><strong>형태:</strong> 종이책, 전자책</p>
+                    <p><strong>분야:</strong> UX/데이터분석</p>
+                </div>
+                <div class="feature">데이터 기반 UX 설계 실무 경험</div>
+                <div class="tag">UX</div>
+                <div class="tag">DATA</div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>[ LAST UPDATE: 2025.01 ]</p>
+            <p>[ POWERED BY RETRO BLUE SYSTEM ]</p>
+        </footer>
+    </div>
+</body>
+</html>
