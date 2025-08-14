@@ -43,7 +43,7 @@
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
             position: relative;
@@ -61,6 +61,19 @@
             margin-bottom: 40px;
             position: relative;
             animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         @keyframes glow {
@@ -96,12 +109,14 @@
             background: linear-gradient(135deg, #002244, #003366);
             border: 3px solid #0099ff;
             padding: 25px;
-            margin-bottom: 25px;
             position: relative;
             transition: all 0.3s ease;
             box-shadow: 
                 5px 5px 0 #001a33,
                 10px 10px 0 #000d1a;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .book-card::before {
@@ -147,10 +162,11 @@
         
         h3 {
             color: #ffffff;
-            font-size: 28px;
+            font-size: 24px;
             margin-bottom: 15px;
             text-shadow: 2px 2px 0 #0066cc;
             letter-spacing: 1px;
+            line-height: 1.3;
         }
         
         .book-info {
@@ -267,7 +283,7 @@
             <div class="subtitle">[ 신간 도서 목록 ]</div>
         </header>
         
-        <main>
+        <main class="books-grid">
             <div class="book-card">
                 <span class="book-number">BOOK #01</span>
                 <h3>피할 수 없는 듣기 싫은 말 백배 활용법</h3>
